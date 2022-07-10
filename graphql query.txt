@@ -1,0 +1,85 @@
+get lesson by id:
+    query {
+    lesson(id: "fa0aa626-27fa-4524-afcc-1986fe4060b7") {
+        name
+    }
+}
+
+get all lessons:
+    query {
+    lessons {
+        id,
+        name,
+        startDate,
+        endDate
+    }
+}
+
+create a lesson:
+    mutation {
+    createLesson(createLessonInput:{
+        name: "Math"
+        startDate: "2022-07-09"
+        endDate: "2022-07-09"
+    }){
+        id
+        name
+        startDate
+        endDate
+    }
+}
+
+create student:
+    mutation {
+    createStudent(createStudentInput:{
+        firstName: "Geraldine"
+        lastName: "Selga"
+    }){
+        firstName,
+        lastName
+    }
+}
+
+get students:
+    query {
+    getStudents {
+        firstName
+        lastName
+    }
+}
+
+assign students to lesson:
+    mutation{
+    assignStudentsToLesson(assignStudentsToLessonInput:{
+        lessonId: "9a6bd703-2638-4e47-9bc7-e6c034b7a3ae",
+        studentIds:[
+        "39179864-bc5d-41bb-8e6a-64ac461c5eeb",
+        "8f7f9112-24a9-47ca-a764-ec74f478747d"
+        ]
+    })
+    {
+        name
+    }
+}
+
+create lesson and assign students:
+    mutation {
+    createLesson(createLessonInput:{
+        name: "Guitar Class"
+        startDate: "2022-07-09"
+        endDate: "2022-07-09"
+      	students: [
+        "8f7f9112-24a9-47ca-a764-ec74f478747d"
+      ]
+    }){
+        id
+        name
+        startDate
+        endDate,
+      	students {
+          firstName
+          lastName
+        }
+    
+    }
+}

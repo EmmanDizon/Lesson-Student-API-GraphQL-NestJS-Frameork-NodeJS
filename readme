@@ -1,0 +1,7 @@
+Apollo -> GraphQL server for node
+npm i graphql graphql-tools apollo-server-express @nestjs/graphql
+
+npm run start:dev
+
+npm install typeorm @nestjs/typeorm
+npm i npm install typeorm @nestjs/typeorm
